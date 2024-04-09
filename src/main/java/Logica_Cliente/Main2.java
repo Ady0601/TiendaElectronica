@@ -43,13 +43,22 @@ public class Main2 {
                     Direccion=scan.nextLine();
                     System.out.println("Digite la contraseña");
                     Contraceña=scan.nextLine();
+                    System.out.println("Digite el identificador único");
                     uid=scan.nextLine();
+                    System.out.println("digit el numero de imagen");
+                    String Nom_img=scan.nextLine();
                     
                     //productpo
                         System.out.println("Cantiadad de productos de la persona");
                         cantiadad=scan.nextInt();
                         if(cantiadad>0){
-                            System.out.println(" digite Marca del producto");
+                            System.out.println(" digite Nombre del producto");
+                            String NombreP=scan.nextLine();
+                            System.out.println("digite la Marca del producto");
+                            String Marca=scan.nextLine();
+                            System.out.println("digite el serial del producto");
+                            String serial=scan.nextLine();
+                            
                         }
                     Persona Objpersona = new Persona(Nombre, Apellido, uid, Direccion, uid, uid, Nombre, productos);
                     
