@@ -4,11 +4,23 @@
  */
 package Logica_Conexion;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.CollectionReference;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.cloud.FirestoreClient;
+import java.util.Map;
+
 /**
  *
  * @author perfil
  */
 public class PersonaProvider {
+
+    public static boolean RetornarUid(String uid) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     CollectionReference reference;
     public static Firestore db;
     
