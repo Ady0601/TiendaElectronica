@@ -22,7 +22,10 @@ public class Main2 {
       String Nombre,Apellido,Direccion,Cedula,Uid,Producto,Nom_img;
         ArrayList<Producto> productos = new ArrayList<>();
         ArrayList<Persona> Lspersonas = new ArrayList<>();
+        Persona objPersona;
+        Producto objProducto;
         Scanner scan=new Scanner(System.in);
+        int Rv=0;
         int opc=0;
         do {            
             System.out.println("*******MENU*********");
@@ -37,6 +40,7 @@ public class Main2 {
                     for(int i=0;i<cantiadad;i++){
                     System.out.println("Ingresar nombre de la perdsona");
                     Nombre=scan.nextLine();
+                    
                     System.out.println("Ingresar Apellido de la persona");
                     Apellido=scan.nextLine();
                     System.out.println("ingresar direccion de la persona");
@@ -61,7 +65,7 @@ public class Main2 {
                             String Marca=scan.nextLine();
                             System.out.println("digite el serial del producto");
                             String serial=scan.nextLine();
-                            Producto objProducto=new Producto(NombreP, Marca, serial);
+                            
                             productos.add(objProducto);
                             
                         }
