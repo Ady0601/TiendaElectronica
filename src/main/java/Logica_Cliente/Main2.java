@@ -19,7 +19,7 @@ public class Main2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String Nombre,Apellido,Direccion, Contraceña, uid;
+       String Nombre,Apellido,Direccion, Contraceña, uid;
         ArrayList<Producto> productos = new ArrayList<>();
         ArrayList<Persona> Lspersonas = new ArrayList<>();
         Scanner scan=new Scanner(System.in);
