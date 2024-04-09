@@ -45,6 +45,7 @@ public class Main2 {
                     Cedula=scan.nextLine();
                     System.out.println("Digite el identificador único");
                     Uid=scan.nextLine();
+                    
                     System.out.println("digit el numero de imagen");
                     Nom_img=scan.nextLine();
                     
@@ -62,6 +63,7 @@ public class Main2 {
                             String serial=scan.nextLine();
                             Producto objProducto=new Producto(NombreP, Marca, serial);
                             productos.add(objProducto);
+                            
                         }
                         }
                     Persona Objpersona = new Persona(Nombre, Apellido, Direccion, Cedula, Uid, Producto, Nom_img, productos);

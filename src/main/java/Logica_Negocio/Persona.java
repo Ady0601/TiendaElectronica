@@ -12,19 +12,19 @@ import java.util.ArrayList;
  */
 public class Persona {
 
-    public String Nombre,Apellido,Direccion,Cedula,Uid,Producto,Nom_img;
+    public String Nombre,Apellido,Direccion,Cedula,Uid,producto,Nom_img;
     public ArrayList <Producto>Productos; 
 
     public Persona() {
     }
 
-    public Persona(String Nombre, String Apellido, String Direccion, String Cedula, String Uid, String Producto, String Nom_img, ArrayList<Producto> Productos) {
+    public Persona(String Nombre, String Apellido, String Direccion, String Cedula, String Uid, String producto, String Nom_img, ArrayList<Producto> Productos) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Direccion = Direccion;
         this.Cedula = Cedula;
         this.Uid = Uid;
-        this.Producto = Producto;
+        this.producto = producto;
         this.Nom_img = Nom_img;
         this.Productos = Productos;
     }
@@ -70,11 +70,11 @@ public class Persona {
     }
 
     public String getProducto() {
-        return Producto;
+        return producto;
     }
 
-    public void setProducto(String Producto) {
-        this.Producto = Producto;
+    public void setProducto(String producto) {
+        this.producto = producto;
     }
 
     public String getNom_img() {
