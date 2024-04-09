@@ -12,25 +12,19 @@ import java.util.ArrayList;
  */
 public class Persona {
 
-    public String Nombre;
-    public String Apellido;
-    public String Cedula;
-    public String Direccion;
-    public String Producto;
-    public String Uid;
-    public String Nom_img;
+    public String Nombre,Apellido,Direccion,Cedula,Uid,Producto,Nom_img;
     public ArrayList <Producto>Productos; 
 
     public Persona() {
     }
 
-    public Persona(String Nombre, String Apellido, String Cedula, String Direccion, String Producto, String Uid, String Nom_img, ArrayList<Producto> Productos) {
+    public Persona(String Nombre, String Apellido, String Direccion, String Cedula, String Uid, String Producto, String Nom_img, ArrayList<Producto> Productos) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
-        this.Cedula = Cedula;
         this.Direccion = Direccion;
-        this.Producto = Producto;
+        this.Cedula = Cedula;
         this.Uid = Uid;
+        this.Producto = Producto;
         this.Nom_img = Nom_img;
         this.Productos = Productos;
     }
@@ -51,14 +45,6 @@ public class Persona {
         this.Apellido = Apellido;
     }
 
-    public String getCedula() {
-        return Cedula;
-    }
-
-    public void setCedula(String Cedula) {
-        this.Cedula = Cedula;
-    }
-
     public String getDireccion() {
         return Direccion;
     }
@@ -67,12 +53,12 @@ public class Persona {
         this.Direccion = Direccion;
     }
 
-    public String getProducto() {
-        return Producto;
+    public String getCedula() {
+        return Cedula;
     }
 
-    public void setProducto(String Producto) {
-        this.Producto = Producto;
+    public void setCedula(String Cedula) {
+        this.Cedula = Cedula;
     }
 
     public String getUid() {
@@ -81,6 +67,14 @@ public class Persona {
 
     public void setUid(String Uid) {
         this.Uid = Uid;
+    }
+
+    public String getProducto() {
+        return Producto;
+    }
+
+    public void setProducto(String Producto) {
+        this.Producto = Producto;
     }
 
     public String getNom_img() {

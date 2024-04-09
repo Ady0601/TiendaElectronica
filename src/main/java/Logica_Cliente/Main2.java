@@ -19,7 +19,7 @@ public class Main2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       String Nombre,Apellido,Direccion, Contraceña, uid;
+      String Nombre,Apellido,Direccion,Cedula,Uid,Producto,Nom_img;
         ArrayList<Producto> productos = new ArrayList<>();
         ArrayList<Persona> Lspersonas = new ArrayList<>();
         Scanner scan=new Scanner(System.in);
@@ -42,15 +42,17 @@ public class Main2 {
                     System.out.println("ingresar direccion de la persona");
                     Direccion=scan.nextLine();
                     System.out.println("Digite la contraseña");
-                    Contraceña=scan.nextLine();
+                    Cedula=scan.nextLine();
                     System.out.println("Digite el identificador único");
-                    uid=scan.nextLine();
+                    Uid=scan.nextLine();
                     System.out.println("digit el numero de imagen");
-                    String Nom_img=scan.nextLine();
+                    Nom_img=scan.nextLine();
+                    
                     
                     //productpo
                         System.out.println("Cantiadad de productos de la persona");
                         cantiadad=scan.nextInt();
+                        for(int j=0;j< cantiadad;j++){
                         if(cantiadad>0){
                             System.out.println(" digite Nombre del producto");
                             String NombreP=scan.nextLine();
@@ -58,10 +60,12 @@ public class Main2 {
                             String Marca=scan.nextLine();
                             System.out.println("digite el serial del producto");
                             String serial=scan.nextLine();
-                            
+                            Producto objProducto=new Producto(NombreP, Marca, serial);
+                            productos.add(objProducto);
                         }
-                    Persona Objpersona = new Persona(Nombre, Apellido, uid, Direccion, uid, uid, Nombre, productos);
-                    
+                        }
+                    Persona Objpersona = new Persona(Nombre, Apellido, Direccion, Cedula, Uid, Producto, Nom_img, productos);
+                    Lspersonas.add(Objpersona);
                         
                     }
                     
@@ -77,5 +81,5 @@ public class Main2 {
         
         
     }
-    
+     
 }
