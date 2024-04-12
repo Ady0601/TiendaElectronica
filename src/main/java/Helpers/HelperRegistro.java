@@ -41,6 +41,7 @@ public class HelperRegistro {
                     System.out.println("El Uid ya existe");
                     }
         }
+    
         
     }
 
