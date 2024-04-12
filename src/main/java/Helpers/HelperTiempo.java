@@ -12,7 +12,7 @@ public class HelperTiempo {
 
     public static void RetornarTiempo(long fin, long inicio) {
         double tiempo = (double) (fin - inicio);
-        System.out.println("Tiempo en Milisegundo" + tiempo);
+        System.out.println("Tiempo en segundos" + tiempo);
         System.out.println("El tiempo que se demoro fue" + ":" + "\t" + "En segundos");
 
     }

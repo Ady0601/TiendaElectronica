@@ -29,7 +29,7 @@ public class HelperRegistro {
                 datos.put("Nom_img", objper.getNom_img());
             long inicio =System.currentTimeMillis();
             
-            PersonaProvider.GuardarPersona("persona", String.valueOf(id), datos);
+            PersonaProvider.GuardarPersona("Persona", String.valueOf(id), datos);
             long fin =System.currentTimeMillis();
             HelperTiempo.RetornarTiempo(fin, inicio);
                 System.out.println(" Persona guardada con exito con id "+ "\t" +id);

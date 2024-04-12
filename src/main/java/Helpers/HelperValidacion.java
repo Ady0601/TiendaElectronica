@@ -192,4 +192,5 @@ public class HelperValidacion {
        int conteo=ValidarVacio(cadena)+RetornarCEV2Contraseña(cadena);
        return conteo;
    }
+     
 }
