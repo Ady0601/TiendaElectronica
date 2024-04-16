@@ -14,7 +14,8 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 import java.util.ArrayList;
 import java.util.Map;
-
+import Logica_Negocio.Persona;
+import Logica_Negocio.Producto;
 /**
  *
  * @author perfil
@@ -63,8 +64,43 @@ public class PersonaProvider {
         }
 
         return rta;
-
     }
 
+   public static ArrayList<Persona> CargarInfoPersonaCodigo (String codigo){
+      Persona objper;
+      Persona objper1= null;
+      
+      
+      ArrayList<Persona>lspersona= new ArrayList<>();
+      ArrayList<Producto> lsprod= new ArrayList<>();
+      
+       try{
+           CollectionReference persona = Conexion.db.collection("Persona");
+           ApiFuture<QuerySnapshot> querySnap= persona.get();
+       for (DocumentSnapshot document : querySnap.get().getDocuments()){
+           
+           objper = new Persona( document.getString("Nombre"),
+                    document.getString("Apellido"),
+                   document.getString("Cedula"),
+                   document.getString("Direccion"),
+                   document.getString("Uid"),
+                   document.getString("Producto"),
+               document.getString("Nom_img")
+           
+           );
+                  
+           lspersona.add(objper);
+       }
+       }catch (Exception e){
+           System.out.println("Error" + e.getMessage());
+       }
+   
+   
+        return lspersona;   
+       }       
+}   
+   
     
-}
+
+    
+

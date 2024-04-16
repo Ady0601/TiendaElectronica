@@ -18,7 +18,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String Nombre, String Apellido, String Direccion, String Cedula, String Uid, String producto, String Nom_img, ArrayList<Producto> Productos) {
+    public Persona(String Nombre, String Apellido, String Direccion, String Cedula, String Uid, String producto, String Nom_img) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Direccion = Direccion;
@@ -26,9 +26,11 @@ public class Persona {
         this.Uid = Uid;
         this.producto = producto;
         this.Nom_img = Nom_img;
-        this.Productos = Productos;
+        
     }
 
+    
+    
     public String getNombre() {
         return Nombre;
     }
