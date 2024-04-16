@@ -83,8 +83,8 @@ public class PersonaProvider {
                     document.getString("Apellido"),
                    document.getString("Cedula"),
                    document.getString("Direccion"),
-                   document.getString("Uid"),
-                   document.getString("Producto"),
+                   document.getString("uid"),
+                   document.getString("Productos"),
                document.getString("Nom_img")
            
            );
@@ -116,8 +116,8 @@ public class PersonaProvider {
                     document.getString("Apellido"),
                    document.getString("Cedula"),
                    document.getString("Direccion"),
-                   document.getString("Uid"),
-                   document.getString("Producto"),
+                   document.getString("uid"),
+                   document.getString("Productos"),
                document.getString("Nom_img")
            
            );

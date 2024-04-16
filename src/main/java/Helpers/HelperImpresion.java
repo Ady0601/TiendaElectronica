@@ -30,7 +30,7 @@ public class HelperImpresion {
                     + "El apellido de la persona es:" + "\t" + lspersonasnube.get(i).getApellido() + "\n"
                     + "La cedula de la persona es:" + "\t" + lspersonasnube.get(i).getCedula() + "\n"
                     + "La direccion de la persona es:" + "\t" + lspersonasnube.get(i).getDireccion());
-            parts = lspersonasnube.get(i).getProducto().split("i");
+            parts = lspersonasnube.get(i).getProducto().split(";");
 
             for (int j = 0; j < parts.length; j++) {
 
@@ -68,7 +68,7 @@ public class HelperImpresion {
                         + "El apellido de la persona es:" + "\t" + lspersonasnube.get(i).getApellido() + "\n"
                         + "La cedula de la persona es:" + "\t" + lspersonasnube.get(i).getCedula() + "\n"
                         + "La direccion de la persona es:" + "\t" + lspersonasnube.get(i).getDireccion());
-                parts = lspersonasnube.get(i).getProducto().split("i");
+                parts = lspersonasnube.get(i).getProducto().split(";");
 
                 for (int j = 0; j < parts.length; j++) {
 
