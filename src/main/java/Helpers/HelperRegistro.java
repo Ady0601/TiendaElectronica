@@ -6,6 +6,7 @@ package Helpers;
 
 import Logica_Conexion.PersonaProvider;
 import Logica_Negocio.Persona;
+import com.google.firebase.ImplFirebaseTrampolines;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,8 +14,10 @@ import java.util.Map;
  *
  * @author perfil
  */
-public class HelperRegistro {
-    public static void RegistrarPersonaNube(Persona objper, int id, String producto)
+
+public class HelperRegistro implements IHelperRegistro{
+    @Override
+    public  void RegistrarPersonaNube(Persona objper, int id, String producto)
     {
         boolean res =PersonaProvider.RetornarUid(objper.getUid());
         if (!res){
@@ -42,6 +45,10 @@ public class HelperRegistro {
                     }
         }
     
+        public static void RegistrarpersonaNubeI(Persona objper,int id , String producto){
         
+        HelperRegistro objHelperRegistro=new HelperRegistro();
+        objHelperRegistro.RegistrarPersonaNube(objper, id, producto);
+        }
     }
 

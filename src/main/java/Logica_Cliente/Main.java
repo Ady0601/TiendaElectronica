@@ -255,10 +255,10 @@ public class Main {
                     }
                     int id = (int) (Math.random() * 100000);
 
-         objper = new Persona(nombre, apellido, direccion, cedula, String.valueOf(id), producto, nom_img);
-                   
-         objper.setProductos(lsproduglobal);
-                    Helpers.HelperRegistro.RegistrarPersonaNube(objper, id, producto);
+                    objper = new Persona(nombre, apellido, direccion, cedula, String.valueOf(id), producto, nom_img);
+
+                    objper.setProductos(lsproduglobal);
+                    Helpers.HelperRegistro.RegistrarpersonaNubeI(objper, id, producto);
                     producto = "";
                     break;
 
@@ -268,19 +268,17 @@ public class Main {
 
                     break;
 
-             
-
                 case 4:
-                     String codigo = "";
-      
-                     
-                     lspersonasnube = PersonaProvider.CargarInfoPersonaCodigo(codigo);
-                     System.out.println("Digite el uid a buscar");
-                     codigo= scan.nextLine();
-                     long inicio= System.currentTimeMillis();
-                     HelperImpresion.BuscarPersonaNube(lspersonasnube, codigo);
-                     long fin= System.currentTimeMillis();
-                     HelperTiempo.RetornarTiempo(fin, inicio);                     break;
+                    String codigo = "";
+
+                    lspersonasnube = PersonaProvider.CargarInfoPersonaCodigo(codigo);
+                    System.out.println("Digite el uid a buscar");
+                    codigo = scan.nextLine();
+                    long inicio = System.currentTimeMillis();
+                    HelperImpresion.BuscarPersonaNube(lspersonasnube, codigo);
+                    long fin = System.currentTimeMillis();
+                    HelperTiempo.RetornarTiempo(fin, inicio);
+                    break;
                 default:
                     System.out.println("Digite una opcion valida");
             }
