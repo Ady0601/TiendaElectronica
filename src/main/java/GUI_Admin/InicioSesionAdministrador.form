@@ -80,9 +80,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Inicio de Sesion Administrador"/>
       </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Inicio de Sesion Administrador"/>
-      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
