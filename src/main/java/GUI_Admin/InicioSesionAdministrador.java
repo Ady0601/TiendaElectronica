@@ -21,7 +21,7 @@ import javax.swing.border.LineBorder;
 
 /**
  *
- * @author 1062076461
+ * @author 1002807593
  */
 public class InicioSesionAdministrador extends javax.swing.JFrame {
 

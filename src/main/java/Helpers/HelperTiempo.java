@@ -11,7 +11,8 @@ package Helpers;
 public class HelperTiempo {
 
     public static void RetornarTiempo(long fin, long inicio) {
-        double tiempo = (double) (fin - inicio);
+        
+        double tiempo = (double) (fin - inicio)/1000;
         System.out.println("Tiempo en segundos" + tiempo);
         System.out.println("El tiempo que se demoro fue" + ":" + "\t" + "En segundos");
 

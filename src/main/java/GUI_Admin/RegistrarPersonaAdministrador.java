@@ -4,6 +4,20 @@
  */
 package GUI_Admin;
 
+import Helpers.HelperValidacion;
+import Logica_Negocio.Persona;
+import Logica_Negocio.Producto;
+import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.nio.file.Path;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
+import java.awt.Image;
 /**
  *
  * @author 1062076461
@@ -13,8 +27,205 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarPersonaAdministrador
      */
+    public ArrayList<Producto> lsproductos = new ArrayList<>();
+    public ArrayList<Persona> lspersona = new ArrayList<>();
+    Persona objper;
+    String producto = "";
+    int numglobal = 0;
+    int band = 0;
+      public String pathc;
+     public String s;
+
     public RegistrarPersonaAdministrador() {
         initComponents();
+        this.setSize(500,500);
+        
+
+        jTextField5.setVisible(false);
+        jTextField6.setVisible(false);
+        jTextField7.setVisible(false);
+        jTextField8.setVisible(false);
+        jTextField9.setVisible(false);
+        jButton4.setVisible(false);
+        jLabel12.setVisible(false);
+        
+        Path currentRelativePath = Paths.get("");
+         s = currentRelativePath.toAbsolutePath().toString();
+         pathc = s + "\\Images\\"+"Background"+".jpg";
+        establecerImagen();
+
+    }
+
+    public int RegistrarNumeroProductos() {
+        String num_pro = jTextField4.getText();
+        int res1= HelperValidacion.ValidarVacio(num_pro);
+        int numero = 0;
+        int band=0;
+        
+        if(res1==0){
+        try {
+            numero = Integer.parseInt(num_pro);
+        } catch (NumberFormatException e) {
+            jTextField4.setBorder(new LineBorder(Color.RED, 2));
+            System.out.println("Digite un numero valido" + e.getMessage());
+            band = 1;
+        }
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Campo Vacio!");
+         jTextField4.setBorder(new LineBorder(Color.RED, 2));
+          band=1;
+        }
+        
+        if(band==0){
+        int res = HelperValidacion.ValidarCantidadRango(numero);
+        
+
+        if (res == 1 && band == 0) {
+            numglobal = numero;
+            numero = 0;
+             jTextField4.setBorder(new LineBorder(Color.BLACK, 1));
+            return 1;
+        } else {
+            jTextField4.setBorder(new LineBorder(Color.RED, 2));
+            JOptionPane.showMessageDialog(null, "El numero no se encuentra en el rango");
+            return 0;
+        }
+        }
+    return 0;
+    }
+public void RegistarProducto() {
+
+        String nombre = jTextField1.getText();
+        String marca = jTextField2.getText();
+        String serial = jTextField3.getText();
+
+        int res, res1, res2;
+
+        res = Helpers.HelperValidacion.ValidarTodo(nombre);
+        res1 = Helpers.HelperValidacion.ValidarTodo(marca);
+        res2 = Helpers.HelperValidacion.ValidarTodoSerial(serial);
+
+        if (res == 0 && res1 == 0 && res2 == 0) {
+
+            jTextField1.setBorder(new LineBorder(Color.BLACK, 1));
+            jTextField2.setBorder(new LineBorder(Color.BLACK, 1));
+            jTextField3.setBorder(new LineBorder(Color.BLACK, 1));
+            
+            Producto objproducto = new Producto(nombre, marca, serial);
+            lsproductos.add(objproducto);
+            band++;
+            
+            JOptionPane.showMessageDialog(null, "Registrando producto"+"\t"+band+"de"+numglobal);
+
+            if (band == numglobal) {
+
+                System.out.println("Alcanzo el Limite de registro");
+
+                jTextField5.setVisible(true);
+                jTextField6.setVisible(true);
+                jTextField7.setVisible(true);
+                jTextField8.setVisible(true);
+                jTextField9.setVisible(true);
+                jTextField1.setVisible(false);
+                jTextField2.setVisible(false);
+                jTextField3.setVisible(false);
+                jButton2.setVisible(false);
+
+            }
+        } else {
+            if (res >= 1) {
+                jTextField1.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campo nombre");
+            }
+            if (res1 >= 1) {
+                jTextField2.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campo marca ");
+            }
+            if (res2 >= 1) {
+                jTextField3.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campos serial");
+            } 
+        }
+
+    }
+public void RegistrarPersona() {
+
+        String nombre = jTextField5.getText();
+        String apellido = jTextField6.getText();
+         String cedula = jTextField7.getText();
+        String direccion = jTextField8.getText();
+        String nom_img = jTextField9.getText();
+        
+              int res, res1, res2, res3, res4;
+
+        res = Helpers.HelperValidacion.ValidarTodo(nombre);
+        res1 = Helpers.HelperValidacion.ValidarTodo(apellido);
+        res2 = Helpers.HelperValidacion.ValidarTodoLetra(cedula);
+        res3 =  Helpers.HelperValidacion.ValidarTodoDireccion(direccion);
+        res4 = Helpers.HelperValidacion.ValidarTodoSerial(nom_img);
+        
+        if(res==0 && res1==0 && res2==0 && res3==0 && res4==0){
+
+        for (int i = 0; i < lsproductos.size(); i++) {
+            producto += lsproductos.get(i).getNombre() + "," + lsproductos.get(i).getMarca() + "," + lsproductos.get(i).getSerial() + ";";
+
+        }
+
+        int id = (int) (Math.random() * 100000);
+
+        objper = new Persona(String.valueOf(id), nombre, apellido, cedula, direccion, producto, nom_img);
+        lspersona.add(objper);
+        objper.setProductos(lsproductos);
+        HelperRegistro.RegistrarPersonaNubeI(objper, id, producto);
+        producto = "";
+
+        jTextField5.setVisible(false);
+        jTextField6.setVisible(false);
+        jTextField7.setVisible(false);
+        jTextField8.setVisible(false);
+        jTextField9.setVisible(false);
+        jButton1.setVisible(false);
+        jButton4.setVisible(true);
+        jLabel12.setVisible(true);
+
+        jLabel12.setText("Registro exitoso, El id del cliente es:" + "\t" + id);
+        }else
+        {
+            if (res >= 1) {
+                jTextField5.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campo nombre");
+            }
+            if (res1 >= 1) {
+                jTextField6.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campo apellido ");
+            }
+            if (res2 >= 1) {
+                jTextField7.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campos cedula");
+            } 
+             if (res3 >= 1) {
+                jTextField8.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campos direccion");
+            }
+              if (res4 >= 1) {
+                jTextField9.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campos nombre imagen");
+            } 
+        }
+
+    }
+public void establecerImagen() {
+        
+        Image img = null;
+        try {
+            File file = new File(pathc);
+           img = ImageIO.read(new File(pathc));
+            //5. Setear la imagen al JLabel
+            jLabel13.setIcon(new ImageIcon(img));
+        } catch (IOException ioexception) {
+            System.err.println(ioexception);
+        }
     }
 
     /**
@@ -53,6 +264,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -189,11 +401,14 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(52, 52, 52)
+                                .addComponent(jLabel8)))
+                        .addGap(0, 131, Short.MAX_VALUE))))
             .addComponent(jSeparator2)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -257,45 +472,51 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel14))
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel14))
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18))
+                            .addComponent(jButton4)
+                            .addComponent(jButton3))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel8)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -405,6 +626,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField1;
