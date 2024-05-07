@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[483, 482]"/>
+      <Dimension value="[500, 500]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -109,7 +109,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+          <AbsoluteConstraints x="0" y="0" width="510" height="480"/>
         </Constraint>
       </Constraints>
     </Component>

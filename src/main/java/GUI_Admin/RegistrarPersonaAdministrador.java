@@ -179,8 +179,8 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
 
         int id = (int) (Math.random() * 100000);
 
-        objper = new Persona(String.valueOf(id), nombre, apellido, cedula, direccion, producto, nom_img);
-        lspersona.add(objper);
+        objper = new Persona(nombre, apellido, direccion, cedula, String.valueOf(id), producto, nom_img);
+        
         objper.setProductos(lsproductos);
         HelperRegistro.RegistrarpersonaNubeI(objper, id, producto);
         producto = "";

@@ -53,13 +53,14 @@ public class PersonaProvider {
 
             for (DocumentSnapshot document : querySnap.get().getDocuments()) {
                 
-                objper = new Persona(document.getString("uid"),
-                        document.getString("Nombre"),
+                objper = new Persona( document.getString("Nombre"),
                         document.getString("Apellido"),
+                         document.getString("Direccion"),
                         document.getString("Cedula"),
-                        document.getString("Direccion"),
+                        document.getString("uid"),
                         document.getString("Productos"),
                         document.getString("Nom_img")
+                       
                         
                 );
                 lspersona.add(objper);
@@ -120,14 +121,14 @@ public class PersonaProvider {
 
             for (DocumentSnapshot document : querySnap.get().getDocuments()) {
                 
-                objper = new Persona(document.getString("uid"),
-                        document.getString("Nombre"),
+                objper = new Persona( document.getString("Nombre"),
                         document.getString("Apellido"),
+                         document.getString("Direccion"),
                         document.getString("Cedula"),
-                        document.getString("Direccion"),
+                        document.getString("uid"),
                         document.getString("Productos"),
                         document.getString("Nom_img")
-                        
+                       
                 );
                 lspersona.add(objper);
                 
