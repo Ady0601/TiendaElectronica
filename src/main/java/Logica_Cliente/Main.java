@@ -271,7 +271,7 @@ public class Main {
                 case 4:
                     String codigo = "";
 
-                    lspersonasnube = PersonaProvider.CargarInfoPersonaCodigo(codigo);
+                   lspersonasnube = PersonaProvider.CargarInfoPersona();
                     System.out.println("Digite el uid a buscar");
                     codigo = scan.nextLine();
                     long inicio = System.currentTimeMillis();
