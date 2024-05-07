@@ -4,6 +4,7 @@
  */
 package GUI_Cliente;
 
+import Logica_Negocio.Usuario;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class MenuCliente extends javax.swing.JFrame {
     
     public String pathc;
      public String s;
+    
      
     public MenuCliente() {
         initComponents();

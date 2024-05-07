@@ -4,9 +4,11 @@
  */
 package GUI_Admin;
 
+import GUI_Cliente.MenuCliente;
 import Helpers.HelperCifrado;
 import Logica_Conexion.Conexion;
 import Logica_Negocio.Administrador;
+import Logica_Negocio.Cliente;
 import Logica_Negocio.Usuario;
 import java.awt.Color;
 import java.awt.Image;
@@ -30,7 +32,11 @@ public class InicioSesionAdministrador extends javax.swing.JFrame {
      */
     public String pathc;
     public String s;
-    
+     
+     Usuario usuAdmin;
+     Usuario usuCliente;
+     
+     
    public InicioSesionAdministrador() {
         initComponents();
         Conexion.Conectar();
@@ -63,10 +69,26 @@ public class InicioSesionAdministrador extends javax.swing.JFrame {
 
             System.out.println("usu ci inter" + "\t" + cifrarusu);
             System.out.println("usu con inter" + "\t" + cifrarcontra);
-
-            Usuario usuAdmin = new Administrador("Admin", "12345");
-
-            boolean rta = usuAdmin.LogOn(cifrarusu, cifrarcontra);
+            System.out.println("Usu"+ cifrarusu);
+            
+            if (usuario.equals("Admin")){
+                usuAdmin=new Administrador("Admin", "12345");
+            }else if (usuario.equals("Cliente")){
+                usuCliente=new Cliente("Cliente", "12345");
+           }
+            if (usuCliente instanceof Cliente){
+                boolean rta1 = usuCliente.LogOn(cifrarusu, cifrarcontra);
+                if (rta1) {
+                    JOptionPane.showMessageDialog(null, "Bienvenido Cliente");
+                    MenuCliente menu= new MenuCliente();
+                    menu.setVisible(true);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null,"Usuario o contraseña invalida");
+                }
+                
+            } else  if (usuAdmin instanceof Administrador){
+           boolean rta = usuAdmin.LogOn(cifrarusu, cifrarcontra);
 
             if (rta) {
                 JOptionPane.showMessageDialog(null,"Bienvenido Administrador");
@@ -87,7 +109,7 @@ public class InicioSesionAdministrador extends javax.swing.JFrame {
         }
 
     }
-
+    }
 
 public void establecerImagen() {
        
