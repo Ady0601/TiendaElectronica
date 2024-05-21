@@ -429,6 +429,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jLabel13.setMinimumSize(new java.awt.Dimension(500, 500));
         getContentPane().add(jLabel13);
         jLabel13.setBounds(0, 0, 500, 500);
+        jLabel13.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

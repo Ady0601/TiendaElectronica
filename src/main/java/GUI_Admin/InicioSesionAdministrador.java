@@ -61,7 +61,8 @@ public class InicioSesionAdministrador extends javax.swing.JFrame {
         res = Helpers.HelperValidacion.ValidarTodo(usuario);
         res1 = Helpers.HelperValidacion.ValidarTodoContraseña(contraseña);
 
-        if (res == 0 && res1 == 0) {
+
+        if (res == 0 && res1 == 0 ) {
            
            
             String cifrarusu = HelperCifrado.CifrarSHA256(usuario);
