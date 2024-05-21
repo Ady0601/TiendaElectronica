@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public interface DAOInterfacePersona {
     
     public int add(Persona per) throws SQLException;
-    public void delete(String id) throws SQLException;
+    public int delete(String id) throws SQLException;
     public Persona getPersona(String id) throws SQLException;
     public ArrayList<Persona> getPersona() throws SQLException;
     public void update(Persona per) throws SQLException;

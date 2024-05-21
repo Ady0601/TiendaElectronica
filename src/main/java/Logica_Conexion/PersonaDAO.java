@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,8 +40,15 @@ public class PersonaDAO implements DAOInterfacePersona {
     }
 
     @Override
-    public void delete(String id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int delete(String id) throws SQLException {
+        String query
+            = "delete from persona where Uid =?";
+        PreparedStatement ps
+            = con.prepareStatement(query);
+        ps.setString(1, id);
+       int n= ps.executeUpdate();
+       return n;
+       
     }
 
     @Override
@@ -58,11 +66,11 @@ public class PersonaDAO implements DAOInterfacePersona {
  
         while (rs.next()) {
             check = true;
-            per = new Persona(rs.getString("Nombre"),
-                    rs.getString("Apellido"),
-            rs.getString("Direccion"),
+            per = new Persona(rs.getString("Uid"),
+                    rs.getString("Nombre"),
+            rs.getString("Apellido"),
             rs.getString("Cedula"),
-                    rs.getString("Uid"),
+                    rs.getString("Direccion"),
                     rs.getString("Producto"),
                     rs.getString("Nom_img"));
         }
@@ -83,13 +91,14 @@ public class PersonaDAO implements DAOInterfacePersona {
         ArrayList<Persona> ls = new ArrayList<>();
  
         while (rs.next()) {
-            Persona per = new Persona(rs.getString("Nombre"),
-                    rs.getString("Apellido"),
-            rs.getString("Direccion"),
+            Persona per = new Persona(rs.getString("Uid"),
+                    rs.getString("Nombre"),
+            rs.getString("Apellido"),
             rs.getString("Cedula"),
-                    rs.getString("Uid"),
+                    rs.getString("Direccion"),
                     rs.getString("Producto"),
                     rs.getString("Nom_img"));
+          
             ls.add(per);
         }
         return ls;
@@ -97,7 +106,19 @@ public class PersonaDAO implements DAOInterfacePersona {
 
     @Override
     public void update(Persona per) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         String query
+            = "update persona set Nombre=?,Apellido=?,Direccion=?,Cedula=?,Producto=?,Nom_img=?"
+              + "where Uid=?";
+            PreparedStatement ps = con.prepareStatement(query);
+       
+        ps.setString(1, per.getNombre());
+        ps.setString(2, per.getApellido());
+        ps.setString(3, per.getDireccion());
+        ps.setString(4, per.getCedula());
+        ps.setString(5, per.getProducto());
+        ps.setString(6, per.getNom_img());
+         ps.setString(7, per.getUid());
+        ps.executeUpdate();
     }
 
     @Override
