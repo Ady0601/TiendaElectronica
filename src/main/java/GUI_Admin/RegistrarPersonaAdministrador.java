@@ -41,7 +41,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
 
     public RegistrarPersonaAdministrador() {
         initComponents();
-        this.setSize(500,500);
+        this.setSize(510,527);
         
 
         jTextField5.setVisible(false);
@@ -272,6 +272,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrar Persona Administrador");
+        setPreferredSize(new java.awt.Dimension(500, 700));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
@@ -307,7 +308,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(125, 89, 150));
         jSeparator1.setForeground(new java.awt.Color(125, 89, 150));
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 212, 490, 3);
+        jSeparator1.setBounds(0, 212, 510, 3);
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -428,7 +429,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jLabel13.setMaximumSize(new java.awt.Dimension(500, 500));
         jLabel13.setMinimumSize(new java.awt.Dimension(500, 500));
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(0, 0, 500, 500);
+        jLabel13.setBounds(0, 0, 500, 490);
         jLabel13.getAccessibleContext().setAccessibleDescription("");
 
         pack();
