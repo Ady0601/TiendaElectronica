@@ -66,11 +66,11 @@ public class PersonaDAO implements DAOInterfacePersona {
  
         while (rs.next()) {
             check = true;
-            per = new Persona(rs.getString("Uid"),
-                    rs.getString("Nombre"),
-            rs.getString("Apellido"),
-            rs.getString("Cedula"),
+            per = new Persona(rs.getString("Nombre"),
+                    rs.getString("Apellido"),
                     rs.getString("Direccion"),
+                    rs.getString("Cedula"),
+                    rs.getString("Uid"),
                     rs.getString("Producto"),
                     rs.getString("Nom_img"));
         }
@@ -91,11 +91,11 @@ public class PersonaDAO implements DAOInterfacePersona {
         ArrayList<Persona> ls = new ArrayList<>();
  
         while (rs.next()) {
-            Persona per = new Persona(rs.getString("Uid"),
-                    rs.getString("Nombre"),
-            rs.getString("Apellido"),
-            rs.getString("Cedula"),
+            Persona per = new Persona(rs.getString("Nombre"),
+                    rs.getString("Apellido"),
                     rs.getString("Direccion"),
+                    rs.getString("Cedula"),
+                    rs.getString("Uid"),
                     rs.getString("Producto"),
                     rs.getString("Nom_img"));
           
@@ -111,13 +111,14 @@ public class PersonaDAO implements DAOInterfacePersona {
               + "where Uid=?";
             PreparedStatement ps = con.prepareStatement(query);
        
+       
         ps.setString(1, per.getNombre());
         ps.setString(2, per.getApellido());
         ps.setString(3, per.getDireccion());
         ps.setString(4, per.getCedula());
         ps.setString(5, per.getProducto());
         ps.setString(6, per.getNom_img());
-         ps.setString(7, per.getUid());
+        ps.setString(7, per.getUid());
         ps.executeUpdate();
     }
 
