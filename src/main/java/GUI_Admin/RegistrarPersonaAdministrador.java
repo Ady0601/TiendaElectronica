@@ -263,8 +263,8 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
@@ -274,72 +274,72 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         setTitle("Registrar Persona Administrador");
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Registrar Producto");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(190, 0, 110, 16);
+        jLabel1.setBounds(140, 0, 220, 30);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel2.setText("Nombre");
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 72, 90, 16);
+        jLabel2.setBounds(10, 80, 90, 16);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel3.setText("Marca");
+        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Marca:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 110, 80, 16);
+        jLabel3.setBounds(10, 110, 80, 16);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel4.setText("Serial");
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Serial:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 140, 70, 16);
+        jLabel4.setBounds(10, 140, 70, 16);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 69, 260, 22);
+        jTextField1.setBounds(190, 80, 260, 22);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(190, 100, 260, 22);
+        jTextField2.setBounds(190, 110, 260, 22);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(192, 132, 260, 22);
+        jTextField3.setBounds(190, 140, 260, 22);
 
-        jSeparator1.setBackground(new java.awt.Color(0, 204, 204));
-        jSeparator1.setForeground(new java.awt.Color(0, 204, 204));
+        jSeparator1.setBackground(new java.awt.Color(125, 89, 150));
+        jSeparator1.setForeground(new java.awt.Color(125, 89, 150));
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 202, 490, 13);
+        jSeparator1.setBounds(0, 212, 490, 3);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel5.setText("Cantidad Productos");
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Cantidad Productos:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 43, 150, 16);
+        jLabel5.setBounds(10, 40, 150, 16);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(190, 40, 103, 22);
+        jTextField4.setBounds(190, 40, 150, 22);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel6.setText("Nombre");
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Nombre:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 242, 80, 16);
+        jLabel6.setBounds(10, 260, 80, 16);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel7.setText("Apellido");
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Apellido:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 273, 80, 16);
+        jLabel7.setBounds(10, 290, 80, 16);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel8.setText("Direccion");
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Dirección:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 326, 80, 16);
+        jLabel8.setBounds(10, 350, 80, 16);
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel9.setText("Cedula");
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Cédula:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(0, 298, 80, 16);
+        jLabel9.setBounds(10, 320, 80, 20);
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,17 +347,17 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(259, 239, 187, 22);
+        jTextField5.setBounds(260, 260, 187, 22);
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(259, 267, 187, 22);
+        jTextField6.setBounds(260, 290, 187, 22);
         getContentPane().add(jTextField7);
-        jTextField7.setBounds(259, 295, 187, 22);
+        jTextField7.setBounds(260, 320, 187, 22);
         getContentPane().add(jTextField8);
-        jTextField8.setBounds(259, 323, 187, 22);
+        jTextField8.setBounds(260, 350, 187, 22);
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 204, 204));
+        jButton1.setBackground(new java.awt.Color(125, 89, 150));
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registrar Persona");
         jButton1.setActionCommand("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -366,11 +366,11 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(325, 432, 140, 23);
+        jButton1.setBounds(310, 450, 160, 23);
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 204));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 204, 204));
+        jButton2.setBackground(new java.awt.Color(125, 89, 150));
+        jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Registrar Productos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,11 +378,11 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(317, 165, 150, 23);
+        jButton2.setBounds(290, 183, 180, 20);
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 204));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 204, 204));
+        jButton3.setBackground(new java.awt.Color(125, 89, 150));
+        jButton3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Aceptar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,17 +390,11 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(378, 40, 80, 23);
+        jButton3.setBounds(368, 40, 100, 23);
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel10.setText("Registrar Persona");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(187, 217, 130, 16);
-
-        jButton4.setBackground(new java.awt.Color(0, 0, 204));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 204, 204));
+        jButton4.setBackground(new java.awt.Color(125, 89, 150));
+        jButton4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Atras");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,24 +402,33 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(6, 432, 72, 23);
+        jButton4.setBounds(20, 450, 72, 23);
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel11.setText("Nombre Imagen");
+        jLabel10.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Registrar Persona");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(140, 220, 210, 28);
+
+        jLabel11.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Nombre Imagen:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(0, 357, 110, 16);
+        jLabel11.setBounds(10, 380, 110, 16);
         getContentPane().add(jTextField9);
-        jTextField9.setBounds(259, 351, 187, 22);
+        jTextField9.setBounds(260, 380, 187, 22);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel12.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("jLabel12");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(58, 404, 380, 16);
+        jLabel12.setBounds(60, 420, 380, 16);
+
+        jLabel13.setMaximumSize(new java.awt.Dimension(500, 500));
+        jLabel13.setMinimumSize(new java.awt.Dimension(500, 500));
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(-20, 0, 570, 500);
+        jLabel13.setBounds(0, 0, 500, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
