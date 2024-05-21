@@ -141,7 +141,7 @@ public class EditarPersona extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(0, 0, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Registar Persona Local");
+        jLabel8.setText("Editar Persona Local");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 6, -1, -1));
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 310));
 
