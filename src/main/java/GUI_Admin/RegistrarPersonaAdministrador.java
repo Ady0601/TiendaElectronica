@@ -36,66 +36,62 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
     String producto = "";
     int numglobal = 0;
     int band = 0;
-      public String pathc;
-     public String s;
+    public String pathc;
+    public String s;
 
     public RegistrarPersonaAdministrador() {
         initComponents();
-        this.setSize(510,527);
-        
+        this.setSize(510, 527);
 
         jTextField5.setVisible(false);
         jTextField6.setVisible(false);
         jTextField7.setVisible(false);
         jTextField8.setVisible(false);
         jTextField9.setVisible(false);
-        jButton4.setVisible(false);
         jLabel12.setVisible(false);
-        
+
         Path currentRelativePath = Paths.get("");
-         s = currentRelativePath.toAbsolutePath().toString();
-         pathc = s + "\\Images\\"+"Background"+".jpg";
+        s = currentRelativePath.toAbsolutePath().toString();
+        pathc = s + "\\Images\\" + "Background" + ".jpg";
         establecerImagen();
 
     }
 
     public int RegistrarNumeroProductos() {
         String num_pro = jTextField4.getText();
-        int res1= HelperValidacion.ValidarVacio(num_pro);
+        int res1 = HelperValidacion.ValidarVacio(num_pro);
         int numero = 0;
-        int band=0;
-        
-        if(res1==0){
-        try {
-            numero = Integer.parseInt(num_pro);
-        } catch (NumberFormatException e) {
+        int band = 0;
+
+        if (res1 == 0) {
+            try {
+                numero = Integer.parseInt(num_pro);
+            } catch (NumberFormatException e) {
+                jTextField4.setBorder(new LineBorder(Color.RED, 2));
+                System.out.println("Digite un numero valido" + e.getMessage());
+                band = 1;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Campo Vacio!");
             jTextField4.setBorder(new LineBorder(Color.RED, 2));
-            System.out.println("Digite un numero valido" + e.getMessage());
             band = 1;
         }
-        }else
-        {
-         JOptionPane.showMessageDialog(null, "Campo Vacio!");
-         jTextField4.setBorder(new LineBorder(Color.RED, 2));
-          band=1;
-        }
-        
-        if(band==0){
-        int res = HelperValidacion.ValidarCantidadRango(numero);
-        
 
-        if (res == 1 && band == 0) {
-            numglobal = numero;
-            numero = 0;
-             jTextField4.setBorder(new LineBorder(Color.BLACK, 1));
-            return 1;
-        } else {
-            jTextField4.setBorder(new LineBorder(Color.RED, 2));
-            JOptionPane.showMessageDialog(null, "El numero no se encuentra en el rango");
-            return 0;
+        if (band == 0) {
+            int res = HelperValidacion.ValidarCantidadRango(numero);
+
+            if (res == 1 && band == 0) {
+                numglobal = numero;
+                numero = 0;
+                jTextField4.setBorder(new LineBorder(Color.BLACK, 1));
+                return 1;
+            } else {
+                jTextField4.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "El numero no se encuentra en el rango");
+                return 0;
+            }
         }
-        }
-    return 0;
+        return 0;
     }
 
     public void RegistarProducto() {
@@ -115,12 +111,12 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             jTextField1.setBorder(new LineBorder(Color.BLACK, 1));
             jTextField2.setBorder(new LineBorder(Color.BLACK, 1));
             jTextField3.setBorder(new LineBorder(Color.BLACK, 1));
-            
+
             Producto objproducto = new Producto(nombre, marca, serial);
             lsproductos.add(objproducto);
             band++;
-            
-            JOptionPane.showMessageDialog(null, "Registrando producto"+"\t"+band+"de"+numglobal);
+
+            JOptionPane.showMessageDialog(null, "Registrando producto" + "\t" + band + "de" + numglobal);
 
             if (band == numglobal) {
 
@@ -131,9 +127,9 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
                 jTextField7.setVisible(true);
                 jTextField8.setVisible(true);
                 jTextField9.setVisible(true);
-                jTextField1.setVisible(false);
-                jTextField2.setVisible(false);
-                jTextField3.setVisible(false);
+                jTextField1.setVisible(true);
+                jTextField2.setVisible(true);
+                jTextField3.setVisible(true);
                 jButton2.setVisible(false);
 
             }
@@ -149,7 +145,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             if (res2 >= 1) {
                 jTextField3.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campos serial");
-            } 
+            }
         }
 
     }
@@ -158,45 +154,44 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
 
         String nombre = jTextField5.getText();
         String apellido = jTextField6.getText();
-         String cedula = jTextField7.getText();
+        String cedula = jTextField7.getText();
         String direccion = jTextField8.getText();
         String nom_img = jTextField9.getText();
-        
-              int res, res1, res2, res3, res4;
+
+        int res, res1, res2, res3, res4;
 
         res = Helpers.HelperValidacion.ValidarTodo(nombre);
         res1 = Helpers.HelperValidacion.ValidarTodo(apellido);
         res2 = Helpers.HelperValidacion.ValidarTodoLetra(cedula);
-        res3 =  Helpers.HelperValidacion.ValidarTodoDireccion(direccion);
+        res3 = Helpers.HelperValidacion.ValidarTodoDireccion(direccion);
         res4 = Helpers.HelperValidacion.ValidarTodoSerial(nom_img);
-        
-        if(res==0 && res1==0 && res2==0 && res3==0 && res4==0){
 
-        for (int i = 0; i < lsproductos.size(); i++) {
-            producto += lsproductos.get(i).getNombre() + "," + lsproductos.get(i).getMarca() + "," + lsproductos.get(i).getSerial() + ";";
+        if (res == 0 && res1 == 0 && res2 == 0 && res3 == 0 && res4 == 0) {
 
-        }
+            for (int i = 0; i < lsproductos.size(); i++) {
+                producto += lsproductos.get(i).getNombre() + "," + lsproductos.get(i).getMarca() + "," + lsproductos.get(i).getSerial() + ";";
 
-        int id = (int) (Math.random() * 100000);
+            }
 
-        objper = new Persona(nombre, apellido, direccion, cedula, String.valueOf(id), producto, nom_img);
-        
-        objper.setProductos(lsproductos);
-        HelperRegistro.RegistrarpersonaNubeI(objper, id, producto);
-        producto = "";
+            int id = (int) (Math.random() * 100000);
 
-        jTextField5.setVisible(false);
-        jTextField6.setVisible(false);
-        jTextField7.setVisible(false);
-        jTextField8.setVisible(false);
-        jTextField9.setVisible(false);
-        jButton1.setVisible(false);
-        jButton4.setVisible(true);
-        jLabel12.setVisible(true);
+            objper = new Persona(nombre, apellido, direccion, cedula, String.valueOf(id), producto, nom_img);
 
-        jLabel12.setText("Registro exitoso, El id del cliente es:" + "\t" + id);
-        }else
-        {
+            objper.setProductos(lsproductos);
+            HelperRegistro.RegistrarpersonaNubeI(objper, id, producto);
+            producto = "";
+
+            jTextField5.setVisible(true);
+            jTextField6.setVisible(true);
+            jTextField7.setVisible(true);
+            jTextField8.setVisible(true);
+            jTextField9.setVisible(true);
+            jButton1.setVisible(true);
+            jButton5.setVisible(true);
+            jLabel12.setVisible(true);
+
+            jLabel12.setText("Registro exitoso, El id del cliente es:" + "\t" + id);
+        } else {
             if (res >= 1) {
                 jTextField5.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campo nombre");
@@ -208,31 +203,32 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             if (res2 >= 1) {
                 jTextField7.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campos cedula");
-            } 
-             if (res3 >= 1) {
+            }
+            if (res3 >= 1) {
                 jTextField8.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campos direccion");
             }
-              if (res4 >= 1) {
+            if (res4 >= 1) {
                 jTextField9.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campos nombre imagen");
-            } 
+            }
         }
 
     }
 
-     public void establecerImagen() {
-        
+    public void establecerImagen() {
+
         Image img = null;
         try {
             File file = new File(pathc);
-           img = ImageIO.read(new File(pathc));
+            img = ImageIO.read(new File(pathc));
             //5. Setear la imagen al JLabel
             jLabel13.setIcon(new ImageIcon(img));
         } catch (IOException ioexception) {
             System.err.println(ioexception);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -263,16 +259,15 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrar Persona Administrador");
-        setPreferredSize(new java.awt.Dimension(500, 700));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
@@ -367,7 +362,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(310, 450, 160, 23);
+        jButton1.setBounds(320, 430, 160, 23);
 
         jButton2.setBackground(new java.awt.Color(125, 89, 150));
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -393,18 +388,6 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(368, 40, 100, 23);
 
-        jButton4.setBackground(new java.awt.Color(125, 89, 150));
-        jButton4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Atras");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4);
-        jButton4.setBounds(20, 450, 72, 23);
-
         jLabel10.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Registrar Persona");
@@ -418,6 +401,18 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jLabel11.setBounds(10, 380, 110, 16);
         getContentPane().add(jTextField9);
         jTextField9.setBounds(260, 380, 187, 22);
+
+        jButton5.setBackground(new java.awt.Color(125, 89, 150));
+        jButton5.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Atras");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(20, 430, 100, 20);
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -455,11 +450,11 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         MenuAdministrador menu = new MenuAdministrador();
         menu.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,7 +496,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
