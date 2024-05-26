@@ -80,6 +80,7 @@ public class EliminarPersona extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -89,20 +90,20 @@ public class EliminarPersona extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Digite el Uid");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 44, -1, -1));
+        jLabel1.setText("Digite el Uid:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 40, 150, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 240, -1));
 
         jScrollPane1.setViewportView(jTextPane1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 340, 300));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 120, 136));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 320, 270));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 120, 136));
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -113,12 +114,23 @@ public class EliminarPersona extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 90, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 90, -1));
 
-        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        jButton3.setBackground(new java.awt.Color(125, 89, 150));
+        jButton3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 90, -1));
+
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Eliminar Persona Local");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, 20));
 
         jButton2.setBackground(new java.awt.Color(125, 89, 150));
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -129,7 +141,7 @@ public class EliminarPersona extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 90, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 90, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
@@ -143,18 +155,16 @@ public class EliminarPersona extends javax.swing.JFrame {
         PersonaDAO per = new PersonaDAO();
         String id = jTextField1.getText();
         try {
-             if (id!=null) {
-                int n=per.delete(id);
-                if(n==0)
-                {
+            if (id != null) {
+                int n = per.delete(id);
+                if (n == 0) {
                     JOptionPane.showMessageDialog(null, "No se ha encontrado persona");
-                }else{
-                jTextPane1.setText("Persona Eliminada con uid"+id);
+                } else {
+                    jTextPane1.setText("Persona Eliminada con uid" + id);
                 }
-            }else
-             {
+            } else {
                 JOptionPane.showMessageDialog(null, "No se ha encontrado persona");
-             }
+            }
 
         } catch (Exception e) {
             System.out.println("Excepcion" + e);
@@ -167,6 +177,26 @@ public class EliminarPersona extends javax.swing.JFrame {
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        PersonaDAO per = new PersonaDAO();
+        String id = jTextField1.getText();
+        try {
+            Persona persona = per.getPersona(id);
+            if (persona == null) {
+                JOptionPane.showMessageDialog(null, "No se ha encontrado persona");
+            }
+            String im = Helpers.HelperImpresion.ImprimirInfoInterfazLocal(persona);
+            jTextPane1.setText(im);
+            pathc = s + "\\Images\\" + persona.getNom_img() + ".jpg";
+            establecerImagen();
+
+        } catch (Exception e) {
+            System.out.println("Excepcion" + e);
+        }
+
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +236,7 @@ public class EliminarPersona extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

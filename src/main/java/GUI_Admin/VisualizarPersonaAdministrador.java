@@ -100,9 +100,10 @@ public class VisualizarPersonaAdministrador extends javax.swing.JFrame {
 
         jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextPane1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jScrollPane2.setViewportView(jTextPane1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 54, 410, 330));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 54, 420, 330));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();

@@ -153,6 +153,7 @@ public void establecerImagen() {
         jLabel3.setText("Contraseña:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
+        jPasswordField1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -160,6 +161,7 @@ public void establecerImagen() {
         });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 170, -1));
 
+        jTextField1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -168,7 +170,7 @@ public void establecerImagen() {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 170, -1));
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
-        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Iniciar Sesion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

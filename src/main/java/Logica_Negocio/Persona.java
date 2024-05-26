@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author perfil
  */
 public class Persona {
-
+    
     public String Nombre,Apellido,Direccion,Cedula,Uid,producto,Nom_img;
     public ArrayList <Producto>Productos; 
 

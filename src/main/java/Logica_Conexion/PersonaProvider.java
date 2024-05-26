@@ -4,6 +4,7 @@
  */
 package Logica_Conexion;
 
+import static Logica_Conexion.Conexion.db;
 import Logica_Negocio.Persona;
 import Logica_Negocio.Producto;
 import com.google.api.core.ApiFuture;
@@ -11,17 +12,23 @@ import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.Precondition;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 import java.util.ArrayList;
 import java.util.Map;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Santiago Lopez
  */
 public class PersonaProvider {
+
+    public static String EliminarPersonaAdministrador(String persona, String uid) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     CollectionReference reference;
     public static Firestore db;
@@ -40,10 +47,10 @@ public class PersonaProvider {
     }
 
     public static ArrayList CargarInfoPersona() {
-        
+
         Persona objper;
         Producto produ;
-        
+
         ArrayList<Persona> lspersona = new ArrayList<>();
         ArrayList<Producto> lsprodu = new ArrayList<>();
 
@@ -52,19 +59,17 @@ public class PersonaProvider {
             ApiFuture<QuerySnapshot> querySnap = persona.get();
 
             for (DocumentSnapshot document : querySnap.get().getDocuments()) {
-                
-                objper = new Persona( document.getString("Nombre"),
+
+                objper = new Persona(document.getString("Nombre"),
                         document.getString("Apellido"),
-                         document.getString("Direccion"),
+                        document.getString("Direccion"),
                         document.getString("Cedula"),
                         document.getString("uid"),
                         document.getString("Productos"),
                         document.getString("Nom_img")
-                       
-                        
                 );
                 lspersona.add(objper);
-                
+
             }
 
         } catch (Exception e) {
@@ -72,31 +77,27 @@ public class PersonaProvider {
         }
         return lspersona;
     }
-    
-      public static boolean RetornarUid(String uid) {
-        
+
+    public static boolean RetornarUid(String uid) {
+
         ArrayList<String> uids = new ArrayList<>();
-        boolean rta=true;
+        boolean rta = true;
 
         try {
             CollectionReference persona = Conexion.db.collection("Persona");
             ApiFuture<QuerySnapshot> querySnap = persona.get();
 
             for (DocumentSnapshot document : querySnap.get().getDocuments()) {
-                
-               
+
                 uids.add(document.getString("uid"));
-                
+
             }
-            
+
             for (int i = 0; i < uids.size(); i++) {
-                
-                if(uid.equals(uids.get(i)))
-                {
+
+                if (uid.equals(uids.get(i))) {
                     return rta;
-                }
-                else
-                {
+                } else {
                     return !rta;
                 }
             }
@@ -106,12 +107,12 @@ public class PersonaProvider {
         }
         return rta;
     }
-      
-      public static Persona CargarInfoPersonaCodigo(String codigo) {
-        
+
+    public static Persona CargarInfoPersonaCodigo(String codigo) {
+
         Persona objper;
-        Persona objper1=null;
-        
+        Persona objper1 = null;
+
         ArrayList<Persona> lspersona = new ArrayList<>();
         ArrayList<Producto> lsprodu = new ArrayList<>();
 
@@ -120,30 +121,47 @@ public class PersonaProvider {
             ApiFuture<QuerySnapshot> querySnap = persona.get();
 
             for (DocumentSnapshot document : querySnap.get().getDocuments()) {
-                
-                objper = new Persona( document.getString("Nombre"),
+
+                objper = new Persona(document.getString("Nombre"),
                         document.getString("Apellido"),
-                         document.getString("Direccion"),
+                        document.getString("Direccion"),
                         document.getString("Cedula"),
                         document.getString("uid"),
                         document.getString("Productos"),
                         document.getString("Nom_img")
-                       
                 );
                 lspersona.add(objper);
-                
+
             }
 
         } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
-          for (int i = 0; i < lspersona.size(); i++) {
-              if(codigo.equals(lspersona.get(i).getUid()))
-              {
-                  objper1=lspersona.get(i);
-              }
-          }
+        for (int i = 0; i < lspersona.size(); i++) {
+            if (codigo.equals(lspersona.get(i).getUid())) {
+                objper1 = lspersona.get(i);
+            }
+        }
         return objper1;
     }
 
+    public static boolean EliminarPersona(String coleccion, String documento) {
+        db = FirestoreClient.getFirestore();
+        boolean res = RetornarUid(documento);
+        System.out.println("Respuesta" + res);
+
+        try {
+            if (res != false) {
+                DocumentReference docref = db.collection(coleccion).document(documento);
+                ApiFuture<WriteResult> result = docref.delete(Precondition.NONE);
+                System.out.println("Eliminado exitosamente");
+                return true;
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Cliente no encontrado");
+        }
+
+        return false;
+    }
 }

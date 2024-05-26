@@ -13,8 +13,6 @@ import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-
-
 /**
  *
  * @author Santiago Lopez
@@ -24,25 +22,23 @@ public class MenuCliente extends javax.swing.JFrame {
     /**
      * Creates new form MenuAdministrador
      */
-    
     public String pathc;
-     public String s;
-    
-     
+    public String s;
+
     public MenuCliente() {
         initComponents();
-         Path currentRelativePath = Paths.get("");
-         s = currentRelativePath.toAbsolutePath().toString();
-         pathc = s + "\\Images\\"+"Background"+".jpg";
+        Path currentRelativePath = Paths.get("");
+        s = currentRelativePath.toAbsolutePath().toString();
+        pathc = s + "\\Images\\" + "Background" + ".jpg";
         establecerImagen();
     }
-    
-     public void establecerImagen() {
-        
+
+    public void establecerImagen() {
+
         Image img = null;
         try {
             File file = new File(pathc);
-           img = ImageIO.read(new File(pathc));
+            img = ImageIO.read(new File(pathc));
             //5. Setear la imagen al JLabel
             jLabel2.setIcon(new ImageIcon(img));
         } catch (IOException ioexception) {
@@ -88,9 +84,9 @@ public class MenuCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       BuscarPersonaCliente busper = new BuscarPersonaCliente();
+        BuscarPersonaCliente busper = new BuscarPersonaCliente();
         busper.setVisible(true);
-        dispose(); 
+        dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

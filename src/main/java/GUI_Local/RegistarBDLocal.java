@@ -59,9 +59,8 @@ public class RegistarBDLocal extends javax.swing.JFrame {
     }
 
     public void RegistrarPersona() {
-        
 
-        String uid =jTextField1.getText();
+        String uid = jTextField1.getText();
         String nombre = jTextField2.getText();
         String apellido = jTextField3.getText();
         String direccion = jTextField4.getText();
@@ -69,17 +68,17 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         String productos = jTextField6.getText();
         String nom_img = jTextField7.getText();
 
-        int res, res1, res2, res3, res4,res5,res6;
+        int res, res1, res2, res3, res4, res5, res6;
 
         res = Helpers.HelperValidacion.ValidarTodoLetra(uid);
         res1 = Helpers.HelperValidacion.ValidarTodo(nombre);
         res2 = Helpers.HelperValidacion.ValidarTodo(apellido);
         res3 = Helpers.HelperValidacion.ValidarTodoDireccion(direccion);
         res4 = Helpers.HelperValidacion.ValidarTodoLetra(cedula);
-        res5 =Helpers.HelperValidacion.ValidarTodo(productos);
+        res5 = Helpers.HelperValidacion.ValidarTodo(productos);
         res6 = Helpers.HelperValidacion.ValidarTodoSerial(nom_img);
 
-        if (res == 0 && res1 == 0 && res2 == 0 && res3 == 0 && res4 == 0 && res5 ==0 && res6 == 0) {
+        if (res == 0 && res1 == 0 && res2 == 0 && res3 == 0 && res4 == 0 && res5 == 0 && res6 == 0) {
 
             int id = (int) (Math.random() * 100000);
 
@@ -92,7 +91,6 @@ public class RegistarBDLocal extends javax.swing.JFrame {
             jTextField7.setVisible(true);
             jButton1.setVisible(true);
             jButton2.setVisible(true);
-            
 
         } else {
             if (res >= 1) {
@@ -225,7 +223,7 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Registar Persona Local");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();

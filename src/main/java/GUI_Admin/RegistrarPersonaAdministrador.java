@@ -293,12 +293,18 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jLabel4.setText("Serial:");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 140, 70, 16);
+
+        jTextField1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(190, 80, 260, 22);
+        jTextField1.setBounds(190, 80, 260, 20);
+
+        jTextField2.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(190, 110, 260, 22);
+        jTextField2.setBounds(190, 110, 260, 20);
+
+        jTextField3.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(190, 140, 260, 22);
+        jTextField3.setBounds(190, 140, 260, 20);
 
         jSeparator1.setBackground(new java.awt.Color(125, 89, 150));
         jSeparator1.setForeground(new java.awt.Color(125, 89, 150));
@@ -310,8 +316,10 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jLabel5.setText("Cantidad Productos:");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 40, 150, 16);
+
+        jTextField4.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(190, 40, 150, 22);
+        jTextField4.setBounds(190, 40, 150, 20);
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -337,19 +345,26 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(10, 320, 80, 20);
 
+        jTextField5.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(260, 260, 187, 22);
+        jTextField5.setBounds(187, 260, 260, 20);
+
+        jTextField6.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(260, 290, 187, 22);
+        jTextField6.setBounds(187, 290, 260, 20);
+
+        jTextField7.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField7);
-        jTextField7.setBounds(260, 320, 187, 22);
+        jTextField7.setBounds(187, 320, 260, 20);
+
+        jTextField8.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField8);
-        jTextField8.setBounds(260, 350, 187, 22);
+        jTextField8.setBounds(187, 350, 260, 20);
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -362,7 +377,7 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(320, 430, 160, 23);
+        jButton1.setBounds(310, 430, 160, 23);
 
         jButton2.setBackground(new java.awt.Color(125, 89, 150));
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -399,8 +414,10 @@ public class RegistrarPersonaAdministrador extends javax.swing.JFrame {
         jLabel11.setText("Nombre Imagen:");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(10, 380, 110, 16);
+
+        jTextField9.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         getContentPane().add(jTextField9);
-        jTextField9.setBounds(260, 380, 187, 22);
+        jTextField9.setBounds(187, 380, 260, 20);
 
         jButton5.setBackground(new java.awt.Color(125, 89, 150));
         jButton5.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N

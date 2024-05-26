@@ -175,13 +175,13 @@ public class MenuLocal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-         EliminarPersona lac = new EliminarPersona();
+        EliminarPersona lac = new EliminarPersona();
         lac.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-      EditarPersona lec = new EditarPersona();
+        EditarPersona lec = new EditarPersona();
         lec.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed

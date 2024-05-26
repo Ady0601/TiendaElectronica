@@ -33,20 +33,20 @@ public class BuscarPersonaCliente extends javax.swing.JFrame {
      * Creates new form BuscarPersona
      */
     ArrayList<Persona> lspersonasnube;
-    Persona objper=null;
-    String pathc ;
-    String pathc1 ;
-   
-   public String s;
-   public String s1;
+    Persona objper = null;
+    String pathc;
+    String pathc1;
+
+    public String s;
+    public String s1;
 
     public BuscarPersonaCliente() {
         initComponents();
         Path currentRelativePath = Paths.get("");
-         s = currentRelativePath.toAbsolutePath().toString();
-         s1 = currentRelativePath.toAbsolutePath().toString();
-         pathc1 = s1 + "\\Images\\"+"Background"+".jpg";
-                establecerImagenBack();
+        s = currentRelativePath.toAbsolutePath().toString();
+        s1 = currentRelativePath.toAbsolutePath().toString();
+        pathc1 = s1 + "\\Images\\" + "Background" + ".jpg";
+        establecerImagenBack();
     }
 
     /**
@@ -80,7 +80,7 @@ public class BuscarPersonaCliente extends javax.swing.JFrame {
         jLabel1.setText("Buscar Persona");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 14, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Codigo");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
@@ -94,11 +94,19 @@ public class BuscarPersonaCliente extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 90, 20));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 90, 30));
 
+        jTextPane1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 310, 270));
+
+        jTextField1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 69, 220, -1));
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
@@ -110,7 +118,7 @@ public class BuscarPersonaCliente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 90, 20));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, 90, 30));
 
         jLabel4.setMaximumSize(new java.awt.Dimension(500, 500));
         jLabel4.setMinimumSize(new java.awt.Dimension(500, 500));
@@ -124,47 +132,48 @@ public class BuscarPersonaCliente extends javax.swing.JFrame {
         lspersonasnube = PersonaProvider.CargarInfoPersona();
         String codigo = jTextField1.getText();
         objper = PersonaProvider.CargarInfoPersonaCodigo(codigo);
-         if(objper==null)
-        {
-             jTextField1.setBorder(new LineBorder(Color.RED, 2));
-            JOptionPane.showMessageDialog(null,"Cliente no encontrado");
-        }
-        else
-        {
+        if (objper == null) {
+            jTextField1.setBorder(new LineBorder(Color.RED, 2));
+            JOptionPane.showMessageDialog(null, "Cliente no encontrado");
+        } else {
             jTextField1.setBorder(new LineBorder(Color.BLACK, 1));
             String res = HelperImpresion.ImprimirInfoInterfazNube(lspersonasnube, codigo);
-        jTextPane1.setText(res);
-        pathc = s + "\\Images\\"+objper.getNom_img()+".jpg";
+            jTextPane1.setText(res);
+            pathc = s + "\\Images\\" + objper.getNom_img() + ".jpg";
             System.out.println(pathc);
-                establecerImagen();
+            establecerImagen();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       MenuCliente menu = new MenuCliente();
+        MenuCliente menu = new MenuCliente();
         menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
     public void establecerImagen() {
-        
+
         Image img = null;
         try {
             File file = new File(pathc);
-           img = ImageIO.read(new File(pathc));
+            img = ImageIO.read(new File(pathc));
             //5. Setear la imagen al JLabel
             jLabel3.setIcon(new ImageIcon(img));
         } catch (IOException ioexception) {
             System.err.println(ioexception);
         }
     }
-    
-        public void establecerImagenBack() {
-        
+
+    public void establecerImagenBack() {
+
         Image img = null;
         try {
             File file = new File(pathc1);
-           img = ImageIO.read(new File(pathc1));
+            img = ImageIO.read(new File(pathc1));
             //5. Setear la imagen al JLabel
             jLabel4.setIcon(new ImageIcon(img));
         } catch (IOException ioexception) {

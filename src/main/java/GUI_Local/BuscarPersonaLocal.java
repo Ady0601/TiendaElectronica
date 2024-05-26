@@ -92,6 +92,7 @@ public class BuscarPersonaLocal extends javax.swing.JFrame {
         jLabel1.setText("Digite el Uid");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
+        jTextField1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -99,6 +100,7 @@ public class BuscarPersonaLocal extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 150, -1));
 
+        jTextPane1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 300, 240));
@@ -144,7 +146,7 @@ public class BuscarPersonaLocal extends javax.swing.JFrame {
         String id = jTextField1.getText();
         try {
             Persona persona = per.getPersona(id);
-            if (persona==null) {
+            if (persona == null) {
                 JOptionPane.showMessageDialog(null, "No se ha encontrado persona");
             }
             String im = Helpers.HelperImpresion.ImprimirInfoInterfazLocal(persona);
