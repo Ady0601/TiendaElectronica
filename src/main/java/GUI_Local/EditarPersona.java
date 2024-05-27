@@ -152,7 +152,7 @@ public class EditarPersona extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Editar Persona Local");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N

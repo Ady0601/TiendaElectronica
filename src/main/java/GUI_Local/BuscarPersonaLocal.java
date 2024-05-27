@@ -104,7 +104,7 @@ public class BuscarPersonaLocal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 300, 240));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 120, 136));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, 120, 136));
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N

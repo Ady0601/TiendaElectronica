@@ -4,6 +4,7 @@
  */
 package GUI_Local;
 
+import Helpers.HelperImpresion;
 import Logica_Conexion.PersonaDAO;
 import Logica_Negocio.Persona;
 import java.awt.Image;
@@ -45,10 +46,10 @@ public class MostrarPersonaLocal extends javax.swing.JFrame {
 
     public void establecerImagen() {
 
-        Image img = null;
+         Image img = null;
         try {
             File file = new File(pathc);
-            img = ImageIO.read(new File(pathc));
+            img = ImageIO.read(file);
             //5. Setear la imagen al JLabel
             jLabel1.setIcon(new ImageIcon(img));
         } catch (IOException ioexception) {
@@ -71,7 +72,7 @@ public class MostrarPersonaLocal extends javax.swing.JFrame {
         jTextPane1.setEditable(false);
         jScrollPane1.setViewportView(jTextPane1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 450, 310));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 440, 310));
 
         jButton1.setBackground(new java.awt.Color(125, 89, 150));
         jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -105,16 +106,20 @@ public class MostrarPersonaLocal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
+          try {
             PersonaDAO dao = new PersonaDAO();
-
             ArrayList<Persona> listaper = dao.getPersona();
-            String imp = Helpers.HelperImpresion.ImprimirInfoInterfaz(listaper);
-            jTextPane1.setText(imp);
-
+            if (listaper != null && !listaper.isEmpty()) {
+                String imp = HelperImpresion.ImprimirInfoInterfaz(listaper);
+                jTextPane1.setText(imp);
+            } else {
+                jTextPane1.setText("No hay personas para mostrar.");
+            }
         } catch (Exception e) {
-            System.out.println("Excepcion" + e);
+            System.out.println("Excepcion: " + e);
         }
+                                            
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -127,11 +132,6 @@ public class MostrarPersonaLocal extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -148,16 +148,9 @@ public class MostrarPersonaLocal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MostrarPersonaLocal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MostrarPersonaLocal().setVisible(true);
-            }
-        });
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

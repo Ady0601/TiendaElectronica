@@ -92,8 +92,8 @@ public class BuscarPersonaAdministrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 90, 20));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 130, 140));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 90, 30));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 130, 140));
 
         jTextPane1.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 12)); // NOI18N
         jScrollPane1.setViewportView(jTextPane1);

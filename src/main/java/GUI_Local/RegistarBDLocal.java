@@ -58,8 +58,9 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         }
     }
 
-    public void RegistrarPersona() {
+    public boolean ValidarPersona() {
 
+        boolean Registrovalido = false;
         String uid = jTextField1.getText();
         String nombre = jTextField2.getText();
         String apellido = jTextField3.getText();
@@ -68,17 +69,18 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         String productos = jTextField6.getText();
         String nom_img = jTextField7.getText();
 
-        int res, res1, res2, res3, res4, res5, res6;
+        int res, res1, res2, res3, res4, res5, res6, res7;
 
         res = Helpers.HelperValidacion.ValidarTodoLetra(uid);
         res1 = Helpers.HelperValidacion.ValidarTodo(nombre);
         res2 = Helpers.HelperValidacion.ValidarTodo(apellido);
         res3 = Helpers.HelperValidacion.ValidarTodoDireccion(direccion);
         res4 = Helpers.HelperValidacion.ValidarTodoLetra(cedula);
-        res5 = Helpers.HelperValidacion.ValidarTodo(productos);
+        res5 = Helpers.HelperValidacion.ValidarTodo1(productos);
         res6 = Helpers.HelperValidacion.ValidarTodoSerial(nom_img);
+        res7 = Helpers.HelperValidacion.ValidarCatidadProductos(productos);
 
-        if (res == 0 && res1 == 0 && res2 == 0 && res3 == 0 && res4 == 0 && res5 == 0 && res6 == 0) {
+        if (res == 0 && res1 == 0 && res2 == 0 && res3 == 0 && res4 == 0 && res5 == 0 && res6 == 0 && res7 == 0) {
 
             int id = (int) (Math.random() * 100000);
 
@@ -91,6 +93,8 @@ public class RegistarBDLocal extends javax.swing.JFrame {
             jTextField7.setVisible(true);
             jButton1.setVisible(true);
             jButton2.setVisible(true);
+
+            Registrovalido = true;
 
         } else {
             if (res >= 1) {
@@ -113,16 +117,18 @@ public class RegistarBDLocal extends javax.swing.JFrame {
                 jTextField5.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campo cedula");
             }
-            if (res5 >= 1) {
-                jTextField6.setBorder(new LineBorder(Color.RED, 2));
-                JOptionPane.showMessageDialog(null, "Revise el campo producto");
-            }
+            
             if (res6 >= 1) {
                 jTextField7.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campos nombre imagen");
             }
-        }
+            if (res7 >= 1) {
+                jTextField6.setBorder(new LineBorder(Color.RED, 2));
+                JOptionPane.showMessageDialog(null, "Revise el campos nombre producto no a ingresado nombre, marca y serial");
+            }
 
+        }
+        return Registrovalido;
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -142,7 +148,9 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -158,7 +166,7 @@ public class RegistarBDLocal extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 210, -1));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +179,7 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, -1));
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, -1));
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 210, -1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 210, -1));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 210, -1));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,7 +204,7 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nombre Imagen:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,10 +222,20 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 90, -1));
 
+        jLabel10.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nombre,marca,serial");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cédula:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Más de un producto usar \" ; \"");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 255));
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
@@ -238,20 +256,24 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         String producto = jTextField6.getText();
         String nombreimg = jTextField7.getText();
 
-        try {
-            per = new Persona(nombre, apellido, direccion, cedula, uid, producto, nombreimg);
-            PersonaDAO dao = new PersonaDAO();
-            dao.add(per);
+        if (ValidarPersona()) {
+            try {
+                per = new Persona(nombre, apellido, direccion, cedula, uid, producto, nombreimg);
+                PersonaDAO dao = new PersonaDAO();
+                dao.add(per);
 
-            //String consulta="INSERT INTO `persona`(`Uid`, `Nombre`, `Apellido`, `Direccion`, `Cedula`, `Producto`, `Nom_img`) VALUES ('"+uid+"','"+nombre+"','"+apellido+"','"+direccion+"','"+cedula+"','"+producto+"','"+nombreimg+"')";
-            JOptionPane.showMessageDialog(null, "Registro Exitoso");
-        } catch (Exception e) {
-            System.out.println("Excepcion" + e);
+                //String consulta="INSERT INTO `persona`(`Uid`, `Nombre`, `Apellido`, `Direccion`, `Cedula`, `Producto`, `Nom_img`) VALUES ('"+uid+"','"+nombre+"','"+apellido+"','"+direccion+"','"+cedula+"','"+producto+"','"+nombreimg+"')";
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            } catch (Exception e) {
+                System.out.println("Excepcion" + e);
+            }
+
+            MenuLocal menu = new MenuLocal();
+            menu.setVisible(true);
+            dispose();
+
         }
 
-        MenuLocal menu = new MenuLocal();
-        menu.setVisible(true);
-        dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -304,6 +326,8 @@ public class RegistarBDLocal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
