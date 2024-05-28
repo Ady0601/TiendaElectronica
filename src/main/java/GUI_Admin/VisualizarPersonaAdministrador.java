@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 1062076461
+ * @author Usuario
  */
 public class VisualizarPersonaAdministrador extends javax.swing.JFrame {
 

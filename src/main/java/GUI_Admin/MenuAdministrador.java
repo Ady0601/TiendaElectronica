@@ -4,6 +4,7 @@
  */
 package GUI_Admin;
 import GUI_Local.EliminarPersona;
+import GUI_Local.EscogerBD;
 import Logica_Conexion.Conexion;
 import Logica_Conexion.PersonaDAO;
 import java.awt.Image;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author 1062076461
+ * @author Usuario
  */
 public class MenuAdministrador extends javax.swing.JFrame {
 
@@ -62,6 +63,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -95,7 +97,18 @@ public class MenuAdministrador extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 160, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 160, -1));
+
+        jButton6.setBackground(new java.awt.Color(125, 89, 150));
+        jButton6.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 13)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Escoger base de datos");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 160, -1));
 
         jButton2.setBackground(new java.awt.Color(125, 89, 150));
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -156,7 +169,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         PersonaDAO dao = new PersonaDAO();
+        PersonaDAO dao = new PersonaDAO();
         try {
             dao.close();
             JOptionPane.showMessageDialog(null, "Conexion Cerrada");
@@ -171,6 +184,12 @@ public class MenuAdministrador extends javax.swing.JFrame {
         lac.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+      EscogerBD lac = new EscogerBD();
+        lac.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,6 +232,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

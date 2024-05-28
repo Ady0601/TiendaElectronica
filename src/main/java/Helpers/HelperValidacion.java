@@ -42,7 +42,12 @@ public class HelperValidacion {
         lscaracteres.add(':');
         lscaracteres.add('"');
         lscaracteres.add('!');
-        lscaracteres.add(' ');
+        lscaracteres.add('+');
+        lscaracteres.add('?');
+        lscaracteres.add('=');
+        lscaracteres.add('!');
+        lscaracteres.add('#');
+        
 
         for (int j = 0; j < nombre.length(); j++) {
             boolean flag = Character.isLetter(nombre.charAt(j));
@@ -58,6 +63,32 @@ public class HelperValidacion {
         return ce;
     }
     
+    public static int RetornarCEV3(String nombre) {
+        int ce = 0;
+
+        ArrayList<Character> lscaracteres = new ArrayList<>();
+
+        lscaracteres.add('@');
+        lscaracteres.add('~');
+        lscaracteres.add('/');
+        lscaracteres.add(';');
+        lscaracteres.add(':');
+        lscaracteres.add('"');
+        lscaracteres.add('!');
+
+        for (int j = 0; j < nombre.length(); j++) {
+            boolean flag = Character.isLetter(nombre.charAt(j));
+            if (!flag) {
+                for (int i = 0; i < lscaracteres.size(); i++) {
+
+                    if (lscaracteres.get(i).compareTo(nombre.charAt(j)) == 0) {
+                        ce++;
+                    }
+                }
+            }
+        }
+        return ce;
+    }
 
     public static int ValidarVacio(String cadena) {
         if (cadena.equals("")) {
@@ -156,7 +187,7 @@ public class HelperValidacion {
     }
 
     public static int ValidarTodo(String cadena) {
-        int conteo = ValidarVacio(cadena) + RetornarValor(cadena) + RetornarCEV2(cadena);
+        int conteo = ValidarVacio(cadena) + RetornarValor(cadena) + RetornarCEV3(cadena);
         return conteo;
     }
     public static int ValidarTodo1(String cadena) {

@@ -117,7 +117,7 @@ public class RegistarBDLocal extends javax.swing.JFrame {
                 jTextField5.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campo cedula");
             }
-            
+
             if (res6 >= 1) {
                 jTextField7.setBorder(new LineBorder(Color.RED, 2));
                 JOptionPane.showMessageDialog(null, "Revise el campos nombre imagen");
@@ -178,6 +178,12 @@ public class RegistarBDLocal extends javax.swing.JFrame {
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 210, -1));
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, -1));
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, -1));
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 210, -1));
         getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 210, -1));
 
@@ -286,6 +292,10 @@ public class RegistarBDLocal extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     /**
      * @param args the command line arguments

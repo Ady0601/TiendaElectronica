@@ -4,6 +4,7 @@
  */
 package GUI_Local;
 
+import GUI_Admin.EliminarPersonaAdministrador;
 import Logica_Conexion.PersonaDAO;
 import java.awt.Image;
 import java.io.File;
@@ -62,6 +63,7 @@ public class MenuLocal extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -77,7 +79,7 @@ public class MenuLocal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 190, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 190, -1));
 
         jButton2.setBackground(new java.awt.Color(125, 89, 150));
         jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -88,7 +90,7 @@ public class MenuLocal extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 190, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 190, -1));
 
         jButton3.setBackground(new java.awt.Color(125, 89, 150));
         jButton3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -99,7 +101,7 @@ public class MenuLocal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 190, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 190, -1));
 
         jButton4.setBackground(new java.awt.Color(125, 89, 150));
         jButton4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -110,7 +112,7 @@ public class MenuLocal extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +128,18 @@ public class MenuLocal extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 190, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 190, -1));
+
+        jButton7.setBackground(new java.awt.Color(125, 89, 150));
+        jButton7.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("Escoger Base de datos");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 190, -1));
 
         jButton5.setBackground(new java.awt.Color(125, 89, 150));
         jButton5.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -137,7 +150,7 @@ public class MenuLocal extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 190, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 190, -1));
 
         jLabel2.setText("asd");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
@@ -186,6 +199,12 @@ public class MenuLocal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        EscogerBD lac = new EscogerBD();
+        lac.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,6 +247,7 @@ public class MenuLocal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -8,11 +8,6 @@ import Logica_Negocio.Persona;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
-/**
- *
- * @author Santiago Lopez
- */
 public interface DAOInterfacePersona {
     
     public int add(Persona per) throws SQLException;

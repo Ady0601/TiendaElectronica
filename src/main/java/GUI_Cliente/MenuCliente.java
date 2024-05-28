@@ -4,6 +4,9 @@
  */
 package GUI_Cliente;
 
+import GUI_Admin.EliminarPersonaAdministrador;
+import GUI_Local.EscogerBD;
+import Logica_Conexion.PersonaDAO;
 import Logica_Negocio.Usuario;
 import java.awt.Image;
 import java.io.File;
@@ -12,10 +15,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Santiago Lopez
+ * @author Usuario
  */
 public class MenuCliente extends javax.swing.JFrame {
 
@@ -55,7 +59,9 @@ public class MenuCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -63,10 +69,32 @@ public class MenuCliente extends javax.swing.JFrame {
         setTitle("Menu Cliente");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(125, 89, 150));
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 170, -1));
+
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Menu Opciones Cliente");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(125, 89, 150));
+        jButton2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Escoger base de datos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 170, -1));
 
         jButton3.setBackground(new java.awt.Color(125, 89, 150));
         jButton3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 14)); // NOI18N
@@ -77,7 +105,7 @@ public class MenuCliente extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 150, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 170, -1));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         pack();
@@ -88,6 +116,23 @@ public class MenuCliente extends javax.swing.JFrame {
         busper.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         PersonaDAO dao = new PersonaDAO();
+        try {
+            dao.close();
+            JOptionPane.showMessageDialog(null, "Conexion Cerrada");
+            dispose();
+        } catch (Exception e) {
+            System.out.println("Excepcion" + e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       EscogerBD lac = new EscogerBD();
+        lac.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,6 +171,8 @@ public class MenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
